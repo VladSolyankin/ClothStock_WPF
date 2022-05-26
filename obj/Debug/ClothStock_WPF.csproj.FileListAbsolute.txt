@@ -22,3 +22,10 @@ C:\Users\79117\source\repos\ClothStock_WPF\obj\Debug\ClothStock_WPF.csproj.CopyC
 C:\Users\79117\source\repos\ClothStock_WPF\obj\Debug\App.baml
 C:\Users\79117\source\repos\ClothStock_WPF\obj\Debug\ClothStock_WPF.csproj.AssemblyReference.cache
 C:\Users\79117\source\repos\ClothStock_WPF\obj\Debug\ClothListPage.g.cs
+C:\Users\79117\source\repos\ClothStock_WPF\obj\Debug\ClothFormPage.g.cs
+C:\Users\79117\source\repos\ClothStock_WPF\bin\Debug\ClothStock_ClassLibrary.dll
+C:\Users\79117\source\repos\ClothStock_WPF\bin\Debug\ClothStock_ClassLibrary.pdb
+C:\Users\79117\source\repos\ClothStock_WPF\obj\Debug\ClothFormPage.baml
+C:\Users\79117\source\repos\ClothStock_WPF\obj\Debug\ClothListPage.baml
+C:\Users\79117\source\repos\ClothStock_WPF\obj\Debug\StartPage.g.cs
+C:\Users\79117\source\repos\ClothStock_WPF\obj\Debug\StartPage.baml
