@@ -14,7 +14,7 @@
         ResizeMode="NoResize">
 
     <Border CornerRadius="10"
-            Background="Orange"
+            Background="#181735"
             MouseDown="MainBorder_MouseDown">
         <Grid>
             <Grid.RowDefinitions>
@@ -24,16 +24,14 @@
             <Grid.ColumnDefinitions>
 
                 <ColumnDefinition Width="82*"/>
-                <ColumnDefinition Width="561*"/>
-                <ColumnDefinition Width="157*"/>
+                <ColumnDefinition Width="635*"/>
+                <ColumnDefinition Width="82*"/>
 
             </Grid.ColumnDefinitions>
 
 
             <Border CornerRadius="50"
-                    Background="White"
-                    Width="55"
-                    Height="55" Margin="8,8,8.6,8">
+                    Background="White" Margin="13,12,13.4,12">
 
                 <Image Source="Applications/Images/material.png"
                        Width="45"
@@ -41,7 +39,7 @@
             </Border>
 
             <StackPanel Grid.Row="1" Grid.Column="2"
-                        HorizontalAlignment="Center">
+                        HorizontalAlignment="Center" Margin="13.6,0,18,-0.4" Width="50">
                 <Button Width="50"
                         Height="50"
                         Background="Transparent"
@@ -77,7 +75,7 @@
                                Height="40"/>
                     </StackPanel>
                 </Button>
-                
+
                 <Button Width="50"
                         Height="50"
                         Background="Transparent"
@@ -91,10 +89,10 @@
                 </Button>
             </StackPanel>
 
-            <StackPanel Grid.Row="0" Grid.Column="2"
+            <StackPanel Grid.Row="0" Grid.Column="1"
                         VerticalAlignment="Center"
-                        HorizontalAlignment="Center"
-                        Orientation="Horizontal"
+                        HorizontalAlignment="Right"
+                        Orientation="Horizontal" Grid.ColumnSpan="2" Height="42" Margin="0,19" Width="83"
                         >
                 <Button Background="Transparent"
                         BorderThickness="0"
@@ -103,21 +101,16 @@
                     <Icon:PackIconMaterial Kind="WindowMinimize" 
                                            Width="20"
                                            Height="20"
+                                           Foreground="White"
                                            />
                 </Button>
-                <Button Background="Transparent"
-                        BorderThickness="0"
-                        Margin="10"
-                        Click="Maximize_Click">
-                    <Icon:PackIconMaterial Kind="WindowMaximize"
-                                           Width="20"
-                                           Height="20"/>
-                </Button>
+
                 <Button Background="Transparent"
                         BorderThickness="0"
                         Margin="10"
                         Click="CloseButton_Click">
-                    <Icon:PackIconMaterial Kind="CloseBox" 
+                    <Icon:PackIconMaterial Kind="ExitRun" 
+                                           Foreground="White"
                                            Width="20"
                                            Height="20"
                                            />
@@ -128,17 +121,18 @@
                        Text="Информация о наличии ткани на складе"
                        FontSize="24"
                        FontWeight="Medium"
+                       Foreground="White"
                        FontFamily="Applications/Fonts/Dosis.ttf"
                        TextAlignment="Center"
-                       VerticalAlignment="Center"/>
-            
+                       VerticalAlignment="Center" Height="28" Margin="0.6,26,1.4,26"/>
+
             <Frame Grid.Row="1" Grid.Column="1" 
                    Name="mainFrame"
-                   NavigationUIVisibility="Hidden"/>
-            
-            
+                   NavigationUIVisibility="Hidden" Margin="0.6,0,1.4,-0.4"/>
+
+
         </Grid>
-        
+
 
     </Border>
 </Window>
