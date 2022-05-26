@@ -21,52 +21,28 @@
             </Style.Triggers>
         </Style>
 
-        <Style x:Key="roundedButton"
-               TargetType="Button">
-            <Setter Property="Height"
-                    Value="55" />
-            <Setter Property="Width"
-                    Value="55" />
-            <Setter Property="HorizontalAlignment"
-                    Value="Left" />
-            <Setter Property="VerticalAlignment"
-                    Value="Top" />
-            <Setter Property="Margin"
-                    Value="0,25,0,0" />
-            
+        <Style TargetType="Button" x:Key="button">
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="Margin" Value="0 15" />
+            <Setter Property="Background" Value="MediumVioletRed" />
+            <Setter Property="FontFamily" Value="Fonts/#Dosis" />
+            <Setter Property="Cursor" Value="Hand" />
             <Setter Property="Template">
                 <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type Button}">
-                        <Border x:Name="border"
-                            BorderThickness="0"
-                            Background="Transparent"
-                            CornerRadius="50">
+                    <ControlTemplate TargetType="Button" >
+                        <Border Width="100" Height="25" CornerRadius="12"
+                                            Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center"
+                                                        HorizontalAlignment="Center" />
                         </Border>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsMouseOver"
-                                 Value="True">
-                                <Setter Property="Background"
-                                    TargetName="border"
-                                    Value="LightGray" />
-                            </Trigger>
-                            <Trigger Property="IsPressed"
-                                 Value="True">
-                                <Setter Property="Background"
-                                    TargetName="border"
-                                    Value="Gray" />
-                            </Trigger>
-                        </ControlTemplate.Triggers>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
-
-            <Setter Property="ContentTemplate">
-                <Setter.Value>
-                    <DataTemplate>
-                        <Image Source="{Binding Path=ImageSource}" />
-                    </DataTemplate>
-                </Setter.Value>
-            </Setter>
+            <Style.Triggers >
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="Magenta" />
+                </Trigger>
+            </Style.Triggers>
         </Style>
 
     </Application.Resources>
