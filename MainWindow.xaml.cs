@@ -23,6 +23,8 @@ namespace ClothStock_WPF
         public MainWindow()
         {
             InitializeComponent();
+            ManagerNavigation.MainFrame = mainFrame;
+            ManagerNavigation.MainFrame.Navigate(new ClothListPage());
         }
 
         private void MainBorder_MouseDown(object sender, MouseButtonEventArgs e)
