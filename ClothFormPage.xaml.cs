@@ -1,18 +1,9 @@
 ﻿using ClothStock_ClassLibrary;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+
 
 namespace ClothStock_WPF
 {
@@ -37,6 +28,39 @@ namespace ClothStock_WPF
                 newProduct = false;
             }
             DataContext = currentCloth;
+        }
+
+        private void btnOk_Click(object sender, RoutedEventArgs e)
+        {
+            StringBuilder error = new StringBuilder();
+            if (string.IsNullOrWhiteSpace(currentCloth.ClothName))
+                error.Append("Укажите название ткани!");
+
+            if (costPerMetre.Text.Contains("-"))
+            {
+                MessageBox.Show("Цена не может быть отрицательной");
+                return;
+            }
+            if (error.Length > 0)
+            {
+                MessageBox.Show(error.ToString(), "Невозможно добавить ткань");
+                return;
+            }
+            if (newProduct)
+            {
+                ManagerModel.Stock.Add(currentCloth);
+                statusBar.Text = "Ткань " + currentCloth.ClothName.ToString() + " добавлена ";
+            }
+            else
+            {
+                statusBar.Text = "Ткань " + currentCloth.ClothName.ToString() + " изменена ";
+                ManagerNavigation.MainFrame.Navigate(new ClothListPage());
+            }
+        }
+
+        private void btnCancel_Click(object sender, RoutedEventArgs e)
+        {
+            ManagerNavigation.MainFrame.Navigate(new ClothListPage());
         }
     }
 }

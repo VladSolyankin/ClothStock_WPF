@@ -10,22 +10,22 @@
 
     <Grid>
         <StackPanel Background="White">
-            <DataGrid x:Name="gridStock" Grid.RowSpan="1"
+            <DataGrid x:Name="clothStock"
                       CanUserAddRows="False"
+                      CanUserResizeColumns="False"
+                      CanUserResizeRows="False"
                       CanUserDeleteRows="False"
                       CanUserReorderColumns="False"
-                      IsReadOnly="False" AutoGenerateColumns="False">
-
+                      IsReadOnly="True" AutoGenerateColumns="False"
+                      Height="203">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="2*" />
-                    <DataGridTextColumn Header="Название" Binding="{Binding ClothName}" Width="6*" />
+                    <DataGridTextColumn Header="Ткань" Binding="{Binding ClothName}" Width="8*" />
+                    <DataGridTextColumn Header="Фабрика" Binding="{Binding Factory}" Width="7*" />
                     <DataGridTextColumn Header="Тип ткани" Binding="{Binding ClothType}" Width="6*" />
                     <DataGridTextColumn Header="Цена (м.)" Binding="{Binding CostPerMetre}" Width="5*" />
-                    <DataGridTextColumn Header="Метров на складе" Binding="{Binding MetresInStock}" Width="6*" />
+                    <DataGridTextColumn Header="Дата" Binding="{Binding CheckDate}" Width="6*" />
+                    <DataGridTextColumn Header="В наличии" Binding="{Binding MetresInStock}" Width="6*" />
                     <DataGridTextColumn Header="Наценка" Binding="{Binding Markup}" Width="5*" />
-                    <DataGridTextColumn Header="Дата поступления" Binding="{Binding CheckDate}" Width="6*" />
-                    <DataGridTextColumn Header="Изменить"/>
-
                     <DataGridTemplateColumn>
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>

@@ -29,6 +29,8 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -56,6 +58,12 @@
     <Reference Include="MahApps.Metro.IconPacks.Material, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
       <HintPath>..\ClothStock_ClassLibrary\packages\MahApps.Metro.IconPacks.Material.4.11.0\lib\net47\MahApps.Metro.IconPacks.Material.dll</HintPath>
     </Reference>
+    <Reference Include="MaterialDesignColors, Version=2.0.6.0, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
+      <HintPath>..\ClothStock_ClassLibrary\packages\MaterialDesignColors.2.0.6\lib\net452\MaterialDesignColors.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignThemes.Wpf, Version=4.5.0.0, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
+      <HintPath>..\ClothStock_ClassLibrary\packages\MaterialDesignThemes.4.5.0\lib\net452\MaterialDesignThemes.Wpf.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -76,10 +84,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ClothInformationPage.xaml.cs">
+      <DependentUpon>ClothInformationPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="StartPage.xaml.cs">
       <DependentUpon>StartPage.xaml</DependentUpon>
     </Compile>
     <Page Include="ClothFormPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ClothInformationPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -145,9 +160,6 @@
     <Folder Include="Applications\UserControls\" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Applications\Images\cloth.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Applications\Images\material.png" />
   </ItemGroup>
   <ItemGroup>
@@ -158,9 +170,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Applications\Images\plus.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Applications\Images\add.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Applications\Images\edit.png" />
@@ -195,5 +204,30 @@
       <Name>ClothStock_ClassLibrary</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Applications\Images\cloths.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Applications\Images\light_rb.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Applications\Images\info.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Applications\Images\xml.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Applications\Images\report.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Applications\Images\load.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\ClothStock_ClassLibrary\packages\MaterialDesignThemes.4.5.0\build\MaterialDesignThemes.targets" Condition="Exists('..\ClothStock_ClassLibrary\packages\MaterialDesignThemes.4.5.0\build\MaterialDesignThemes.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\ClothStock_ClassLibrary\packages\MaterialDesignThemes.4.5.0\build\MaterialDesignThemes.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\ClothStock_ClassLibrary\packages\MaterialDesignThemes.4.5.0\build\MaterialDesignThemes.targets'))" />
+  </Target>
 </Project>

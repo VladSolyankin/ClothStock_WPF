@@ -1,18 +1,8 @@
 ﻿using ClothStock_ClassLibrary;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace ClothStock_WPF
 {
@@ -24,24 +14,25 @@ namespace ClothStock_WPF
         public ClothListPage()
         {
             InitializeComponent();
+            clothStock.ItemsSource = ManagerModel.Stock;
         }
 
         private void DeleteProduct_Click(object sender, RoutedEventArgs e)
         {
-            List<Cloth> ProductsForDel = gridStock.SelectedItems.Cast<Cloth>().ToList();
+            List<Cloth> ProductsForDel = clothStock.SelectedItems.Cast<Cloth>().ToList();
             if (ProductsForDel.Count == 0)
             {
-                MessageBox.Show("Выделите продукты для удаления");
+                MessageBox.Show("Выделите элементы для удаления!");
                 return;
             }
-            if (MessageBox.Show($"Вы действительно хотите удалить {ProductsForDel.Count} товаров?", "Отменить действие будет нельзя", MessageBoxButton.YesNoCancel,
+            if (MessageBox.Show($"Вы действительно хотите удалить {ProductsForDel.Count} элементов?", "Отменить действие будет нельзя", MessageBoxButton.YesNoCancel,
                 MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
                 foreach (var prod in ProductsForDel)
                 {
                     ManagerModel.Stock.Remove(prod);
                 }
-                gridStock.Items.Refresh();
+                clothStock.Items.Refresh();
             }
         }
 

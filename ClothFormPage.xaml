@@ -4,38 +4,99 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ClothStock_WPF"
+      xmlns:System="clr-namespace:System;assembly=mscorlib"
+      xmlns:model="clr-namespace:ClothStock_ClassLibrary;assembly=ClothStock_ClassLibrary"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="ClothFormPage">
+      Title="ClothFormPage"
+      >
+
+    <Page.Resources>
+        <ObjectDataProvider x:Key="dataMarkup" MethodName="GetValues"
+                            ObjectType="System:Enum">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="model:Markup" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+
+        <ObjectDataProvider x:Key="dataType" MethodName="GetValues"
+                            ObjectType="System:Enum">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="model:Types" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+
+        <ObjectDataProvider x:Key="dataFactory" MethodName="GetValues"
+                            ObjectType="System:Enum">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="model:ProducingFactory" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </Page.Resources>
 
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="23*"/>
             <RowDefinition Height="2*"/>
         </Grid.RowDefinitions>
-        <StackPanel Background="Cyan" Grid.Column="0" Grid.Row="0">
-            <TextBlock Text="Название ткани" />
-            <TextBox Text="{Binding ClothName}"/>
-            <TextBlock Text="Тип" />
-            <TextBox Text="{Binding ClothType}"/>
-            <TextBlock Text="Цена за метр" />
-            <TextBox Text="{Binding CostPerMetre}"/>
-            <TextBlock Text="Наценка" />
-            <ComboBox />
-            <TextBlock Text="Дата поступления" />
-            <DatePicker Text="{Binding CheckDate}"/>
+        <StackPanel Background="#181735" 
+                    Grid.Column="0" Grid.Row="0">
+            <TextBlock Text="Название ткани"
+                       Foreground="White"
+                       HorizontalAlignment="Center"/>
+            <TextBox Text="{Binding ClothName}"
+                     Width="200">
+            </TextBox>
+            <TextBlock Text="Фабрика"
+                       Foreground="White"
+                       HorizontalAlignment="Center"/>
+            <ComboBox ItemsSource="{Binding Source={StaticResource dataFactory}}"
+                      SelectedItem="{Binding Path=ProducingFactory}"
+                      Width="200"/>
+            <TextBlock Text="Тип" 
+                       Foreground="White"
+                       HorizontalAlignment="Center"/>
+            <ComboBox ItemsSource="{Binding Source={StaticResource dataType}}"
+                      SelectedItem="{Binding Path=Types}"
+                      Width="200"/>
+            <TextBlock Text="Цена за метр"
+                       Name="costPerMetre"
+                       Foreground="White"
+                       HorizontalAlignment="Center"/>
+            <TextBox Text="{Binding CostPerMetre}"
+                     Width="200"/>
+            <TextBlock Text="Наценка"
+                       Foreground="White"
+                       HorizontalAlignment="Center"/>
+            <ComboBox ItemsSource="{Binding Source={StaticResource dataMarkup}}"
+                      SelectedItem="{Binding Path=Markup}"
+                      Width="200"/>
+            <TextBlock Text="Дата поступления"
+                       Foreground="White"
+                       HorizontalAlignment="Center"/>
+            <DatePicker Text="{Binding CheckDate}"
+                        Width="200"/>
 
-            <StackPanel HorizontalAlignment="Center" Margin="10">
+            <StackPanel HorizontalAlignment="Right" 
+                        Margin="50 -140">
                 <Button  Name="btnOk" Content="OK" Width="100" 
-                         
+                         Click="btnOk_Click"
                          Style="{StaticResource button}"/>
-                <Button Name="btnCancel" Content="Отмена" Width="100" 
-                        
+                <Button Name="btnCancel" Content="Cancel" Width="100" 
+                        Click="btnCancel_Click"
                         Style="{StaticResource button}"/>
             </StackPanel>
         </StackPanel>
-        <StatusBar Grid.Row="1">
-            <TextBlock x:Name="statusBar" />
+        <StatusBar
+                   Background="White" Margin="0,0.4,0,-0.4" Grid.Row="1">
+            <TextBlock x:Name="statusBar" 
+                       Foreground="Black"
+                       Width="635"
+                       TextAlignment="Center"
+                       VerticalAlignment="Top"
+                       FontSize="14"
+                       FontWeight="Medium" Height="26"
+                       />
         </StatusBar>
     </Grid>
 </Page>

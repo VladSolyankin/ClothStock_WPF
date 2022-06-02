@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<stock>
+  <cloth clothName="Неведомая ткань" factory="Прочие" clothType="Прочие" costPerMetre="0" checkDate="31.05.2022 19:10:15" metresInStock="0" markup="три" />
+  <cloth clothName="Индийский шёлк" factory="БТК_Текстиль" clothType="Натуральная" costPerMetre="200" checkDate="18.12.2003 0:00:00" metresInStock="10" markup="десять" />
+</stock>

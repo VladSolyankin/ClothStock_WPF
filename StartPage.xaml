@@ -8,7 +8,8 @@
         Title="StartPage" Height="450" Width="800"
         WindowStyle="None"
         AllowsTransparency="True"
-        Background="#181735">
+        Background="#181735"
+        WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="25"/>
@@ -92,7 +93,8 @@
                 <Button Foreground="White"
                         FontFamily="14"
                         FontWeight="Medium"
-                        Content="Start" 
+                        Content="Start"
+                        Click="Button_Click"
                         Style="{StaticResource button}"/>
 
             </StackPanel>
